@@ -96,6 +96,7 @@ void find_func(char *opcode, char *value, int line_number, int format)
 		{"pstr", print_str},
 		{"rotl", rotl},
 		{"rotr", rotr},
+		{"queue", add_to_queue},
 		{NULL, NULL}
 	};
 

@@ -7,16 +7,16 @@
  */
 void mul_nodes(stack_t **stack, unsigned int line_number)
 {
-        int product;
+	int product;
 
-        if (stack == NULL || *stack == NULL || (*stack)->next == NULL)
-                more_err(8, line_number, "mul");
+	if (stack == NULL || *stack == NULL || (*stack)->next == NULL)
+		more_err(8, line_number, "mul");
 
-        (*stack) = (*stack)->next;
-        product = (*stack)->n * (*stack)->prev->n;
-        (*stack)->n = product;
-        free((*stack)->prev);
-        (*stack)->prev = NULL;
+	(*stack) = (*stack)->next;
+	product = (*stack)->n * (*stack)->prev->n;
+	(*stack)->n = product;
+	free((*stack)->prev);
+	(*stack)->prev = NULL;
 }
 
 /**
@@ -26,18 +26,18 @@ void mul_nodes(stack_t **stack, unsigned int line_number)
  */
 void mod_nodes(stack_t **stack, unsigned int line_number)
 {
-        int remainder;
+	int remainder;
 
-        if (stack == NULL || *stack == NULL || (*stack)->next == NULL)
-                more_err(8, line_number, "mod");
+	if (stack == NULL || *stack == NULL || (*stack)->next == NULL)
+		more_err(8, line_number, "mod");
 
-        if ((*stack)->n == 0)
-                more_err(9, line_number);
-        (*stack) = (*stack)->next;
-        remainder = (*stack)->n % (*stack)->prev->n;
-        (*stack)->n = remainder;
-        free((*stack)->prev);
-        (*stack)->prev = NULL;
+	if ((*stack)->n == 0)
+		more_err(9, line_number);
+	(*stack) = (*stack)->next;
+	remainder = (*stack)->n % (*stack)->prev->n;
+	(*stack)->n = remainder;
+	free((*stack)->prev);
+	(*stack)->prev = NULL;
 }
 
 /**
@@ -48,18 +48,18 @@ void mod_nodes(stack_t **stack, unsigned int line_number)
  */
 int is_integer(char *str)
 {
-        if (str == NULL || *str == '\0')
-                return (0);
+	if (str == NULL || *str == '\0')
+		return (0);
 
-        if (*str == '-' || *str == '+')
-                str++;
+	if (*str == '-' || *str == '+')
+		str++;
 
-        while (*str != '\0')
-        {
-                if (!isdigit(*str))
-                        return (0);
-                str++;
-        }
+	while (*str != '\0')
+	{
+		if (!isdigit(*str))
+			return (0);
+		str++;
+	}
 
-        return (1);
+	return (1);
 }
